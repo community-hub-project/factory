@@ -1,0 +1,30 @@
+{
+    "name": "community-hub/factory",
+    "description": "Simple service container replacement.",
+    "autoload": {
+        "files": ["src/helpers.php"],
+        "psr-4": {
+            "CommunityHub\\Components\\Factory\\": "src/classes/autoload"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TestClasses\\": "test/classes",
+            "Test\\Tests\\": "test/tests"
+        }
+    },
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.6",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": ["@phpunit", "@phpcs"],
+        "phpunit": "phpunit",
+        "phpcs": ["@phpcs.src", "@phpcs.tests"],
+        "phpcs.src": "phpcs src test/classes --standard=phpcs.src.xml",
+        "phpcs.tests": "phpcs test/tests --standard=phpcs.tests.xml"
+    }
+}
